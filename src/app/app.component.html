@@ -62,8 +62,10 @@
         <h1 class="weather-title">{{Weather.name}}</h1>
         <p class="weather-info">Wind: {{Weather.wind.speed | number: '1.0-0'}}m/s</p>
         <p class="weather-info">Sunrise: {{Weather.sys.sunrise * 1000 | date:"H:mm (z)"}}</p>
-        <p class="weather-info" (load)="buttonPressed = false">Sunset: {{Weather.sys.sunset * 1000 | date:"H:mm (z)"}}</p>
-        <p style="letter-spacing: 0">More info on <a (click)="weatherCom(Weather.coord.lat, Weather.coord.lon)" class="link">Weather.com</a></p>
+        <p class="weather-info" (load)="buttonPressed = false">
+          Sunset: {{Weather.sys.sunset * 1000 | date:"H:mm (z)"}}</p>
+        <p style="letter-spacing: 0">More info on <a (click)="weatherCom(Weather.coord.lat, Weather.coord.lon)"
+                                                     class="link">Weather.com</a></p>
       </div>
     </div>
     <ng-template #loading>

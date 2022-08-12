@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
         break;
       } else {
         this.Country = {
-          country:  '',
+          country: '',
           cities: []
         }
       }

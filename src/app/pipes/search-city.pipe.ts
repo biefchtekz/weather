@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   name: 'searchCity'
@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchCityPipe implements PipeTransform {
 
   transform(cities: string[], search = ''): string[] {
-    if (!search.trim()){
+    if (!search.trim()) {
       return cities
     } else {
       return cities.filter(curr => {

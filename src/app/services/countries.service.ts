@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
@@ -14,7 +14,4 @@ export class CountriesService {
   getCountries(): Observable<Object> {
     return this.http.get(`https://countriesnow.space/api/v0.1/countries`)
   }
-
-
-
 }

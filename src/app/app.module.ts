@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import { SearchCountryPipe } from './pipes/search-country.pipe';
+import {SearchCountryPipe} from './pipes/search-country.pipe';
 import {FormsModule} from "@angular/forms";
-import { SearchCityPipe } from './pipes/search-city.pipe';
+import {SearchCityPipe} from './pipes/search-city.pipe';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import { NotFoundComponent } from './alerts/not-found/not-found.component';
+import {NotFoundComponent} from './alerts/not-found/not-found.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,4 +43,5 @@ import { environment } from '../environments/environment';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
