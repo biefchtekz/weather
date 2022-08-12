@@ -54,17 +54,23 @@ body {
   .weather {
     letter-spacing: 1px;
     color: white;
-    padding: 2rem;
     width: 100%;
     background: rgba(0, 0, 255, 0.3);
     border-radius: 5px;
     margin-top: 1rem;
+    justify-content: center;
+
+    .weather-col {
+      margin-left: 10px;
+    }
 
     .weather-title {
       font-size: 36px;
     }
+
     .temp {
       font-size: 100px;
+      margin-right: 10px;
     }
 
     .weather-info {
@@ -75,6 +81,10 @@ body {
     .weather-icon {
       height: 150px;
       width: 150px;
+    }
+    .link{
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
 }
@@ -88,6 +98,29 @@ body {
 @media screen and (min-width: 850px) {
   .choice {
     width: 380px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .wrapper {
+    margin: 0;
+    padding: 1rem;
+  }
+  .weather {
+    padding: 0 0 1rem 0;
+  }
+  .weather-cond {
+    width: 100%;
+    justify-content: center;
+  }
+  .weather-info {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 730px) {
+  .weather {
+    padding: 2rem 2rem 2rem 0;
   }
 }
 

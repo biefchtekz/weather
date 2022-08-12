@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CountriesService} from "./services/countries.service";
 import {Country, Weather} from "./interfaces/interfaces";
 import {WeatherDbService} from "./services/weather-db.service";
+import {DialogsService} from "./services/dialogs.service";
 
 @Component({
   selector: 'app-root',
@@ -18,10 +19,12 @@ export class AppComponent implements OnInit {
   City = ''
   // @ts-ignore
   Weather: Weather
+  buttonPressed = false
 
   constructor(
     private getCountries: CountriesService,
-    private weather: WeatherDbService
+    private weather: WeatherDbService,
+    private dialog: DialogsService
   ) {
   }
 
@@ -42,6 +45,8 @@ export class AppComponent implements OnInit {
 
   reloadInput(event: Event) {
     // @ts-ignore
+    document.getElementById('cityChoice').reset()
+    // @ts-ignore
     this.loadCountry(event.target.value)
   }
 
@@ -60,11 +65,20 @@ export class AppComponent implements OnInit {
   }
 
   getWeather() {
+    this.buttonPressed = true
     this.weather.getWeather(this.City).subscribe(
       log => {
         this.Weather = log
-        console.log(log)
+      },
+      error => {
+        this.dialog.notFound()
+        this.buttonPressed = false
       }
     )
+  }
+
+  weatherCom(lat: string, lon: string) {
+    // @ts-ignore
+    window.open(`https://weather.com/weather/today/l/${lat},${lon}`, '_blank').focus()
   }
 }

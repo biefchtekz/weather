@@ -10,12 +10,16 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import { SearchCountryPipe } from './pipes/search-country.pipe';
 import {FormsModule} from "@angular/forms";
 import { SearchCityPipe } from './pipes/search-city.pipe';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { NotFoundComponent } from './alerts/not-found/not-found.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchCountryPipe,
     SearchCityPipe,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import { SearchCityPipe } from './pipes/search-city.pipe';
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

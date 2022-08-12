@@ -23,7 +23,7 @@
       </mat-option>
     </mat-autocomplete>
   </div>
-  <div class="choice">
+  <form class="choice" id="cityChoice">
     <label for="city">Search and choose city from list</label>
     <input
       class="country"
@@ -47,20 +47,28 @@
         <mat-option *ngIf="!(Country.cities | searchCity:searchCity).length" disabled>No city available</mat-option>
       </div>
     </mat-autocomplete>
-  </div>
+  </form>
   <button (click)="getWeather()">Search</button>
-  <div class="weather flex" *ngIf="Weather" style="justify-content: space-evenly">
-    <div class="flex">
-      <img
-        src="https://openweathermap.org/img/wn/{{Weather.weather[0].icon}}@2x.png"
-        class="weather-icon"
-      >
-      <h1 class="weather-title temp">{{Weather.main.temp | number: '1.0-0'}}°C</h1>
+  <div *ngIf="buttonPressed" style="width: 100%">
+    <div class="weather flex" *ngIf="Weather else loading">
+      <div class="flex weather-cond">
+        <img
+          src="https://openweathermap.org/img/wn/{{Weather.weather[0].icon}}@2x.png"
+          class="weather-icon"
+        >
+        <h1 class="weather-title temp">{{Weather.main.temp | number: '1.0-0'}}°C</h1>
+      </div>
+      <div class="weather-col">
+        <h1 class="weather-title">{{Weather.name}}</h1>
+        <p class="weather-info">Wind: {{Weather.wind.speed | number: '1.0-0'}}m/s</p>
+        <p class="weather-info">Sunrise: {{Weather.sys.sunrise * 1000 | date:"H:mm (z)"}}</p>
+        <p class="weather-info" (load)="buttonPressed = false">Sunset: {{Weather.sys.sunset * 1000 | date:"H:mm (z)"}}</p>
+        <p style="letter-spacing: 0">More info on <a (click)="weatherCom(Weather.coord.lat, Weather.coord.lon)" class="link">Weather.com</a></p>
+      </div>
     </div>
-    <div>
-      <h1 class="weather-title">{{Weather.name}}</h1>
-      <p class="weather-info">Wind: {{Weather.wind.speed | number: '1.0-0'}}m/s</p>
-    </div>
+    <ng-template #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
   </div>
 </div>
 
