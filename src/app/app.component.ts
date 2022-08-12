@@ -44,8 +44,9 @@ export class AppComponent implements OnInit {
   }
 
   reloadInput(event: Event) {
+    this.searchCity = ''
     // @ts-ignore
-    document.getElementById('cityChoice').reset()
+    document.getElementById('city').value = ''
     // @ts-ignore
     this.loadCountry(event.target.value)
   }

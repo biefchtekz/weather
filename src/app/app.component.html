@@ -23,7 +23,7 @@
       </mat-option>
     </mat-autocomplete>
   </div>
-  <form class="choice" id="cityChoice">
+  <div class="choice">
     <label for="city">Search and choose city from list</label>
     <input
       class="country"
@@ -47,7 +47,7 @@
         <mat-option *ngIf="!(Country.cities | searchCity:searchCity).length" disabled>No city available</mat-option>
       </div>
     </mat-autocomplete>
-  </form>
+  </div>
   <button (click)="getWeather()">Search</button>
   <div *ngIf="buttonPressed" style="width: 100%">
     <div class="weather flex" *ngIf="Weather else loading">

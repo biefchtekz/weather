@@ -6,10 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchCityPipe implements PipeTransform {
 
   transform(cities: string[], search = ''): string[] {
-    if (!search.trim()) return cities
-    return cities.filter(curr => {
-      return curr.toLowerCase().includes(search.toLowerCase())
-    })
+    if (!search.trim()){
+      return cities
+    } else {
+      return cities.filter(curr => {
+        return curr.toLowerCase().includes(search.toLowerCase())
+      })
+    }
+
   }
 
 }

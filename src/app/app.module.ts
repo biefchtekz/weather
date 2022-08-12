@@ -13,6 +13,8 @@ import { SearchCityPipe } from './pipes/search-city.pipe';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { NotFoundComponent } from './alerts/not-found/not-found.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,13 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatFormFieldModule,
     FormsModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
